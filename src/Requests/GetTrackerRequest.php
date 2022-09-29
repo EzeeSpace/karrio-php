@@ -20,7 +20,6 @@ class GetTrackerRequest extends SaloonRequest
 
     private string $trackingNumber;
 
-
     public function __construct(string $carrierName, string $trackingNumber)
     {
         $this->carrierName = $carrierName;
