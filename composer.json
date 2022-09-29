@@ -1,35 +1,44 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "karrio/karrio-php-sdk",
+    "description": "Karrio PHP SDK",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        "karrio",
+        "karrio-php",
+        "karrio-php-sdk",
+        "tracking-api",
+        "shipping-api",
+        "usps",
+        "ups",
+        "fedex",
+        "dhl"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/karrio/karrio-php",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "abisheksrikaanth",
+            "email": "abishek@technicaliti.me",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "sammyjo20/saloon": "^1.4"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
+        "laravel/pint": "^1.2",
         "pestphp/pest": "^1.20",
         "spatie/ray": "^1.28"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "Karrio\\Karrio\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Karrio\\Karrio\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -38,7 +47,10 @@
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
