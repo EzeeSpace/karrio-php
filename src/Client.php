@@ -23,15 +23,11 @@ class Client
 
     public function createTracker(string $carrierName, string $trackingNumber): Tracker
     {
-        $response = $this->connector->send(new Requests\CreateTrackerRequest($carrierName, $trackingNumber));
-
-        return $response->dto();
+        return $this->connector->send(new Requests\CreateTrackerRequest($carrierName, $trackingNumber))->dto();
     }
 
-    public function getTracker(string $carrierName, string $trackingNumber): Tracker
+    public function getTracker(string $trackingId): Tracker
     {
-        $response = $this->connector->send(new Requests\GetTrackerRequest($carrierName, $trackingNumber));
-
-        return $response->dto();
+        return $this->connector->send(new Requests\GetTrackerRequest($trackingId))->dto();
     }
 }

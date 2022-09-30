@@ -16,19 +16,16 @@ class GetTrackerRequest extends SaloonRequest
 
     protected ?string $method = Saloon::GET;
 
-    private string $carrierName;
+    private string $trackingId;
 
-    private string $trackingNumber;
-
-    public function __construct(string $carrierName, string $trackingNumber)
+    public function __construct(string $trackingId)
     {
-        $this->carrierName = $carrierName;
-        $this->trackingNumber = $trackingNumber;
+        $this->trackingId = $trackingId;
     }
 
     public function defineEndpoint(): string
     {
-        return "/tracking/{$this->carrierName}/{$this->trackingNumber}";
+        return "/trackers/{$this->trackingId}";
     }
 
     protected function castToDto(SaloonResponse $response): Tracker
