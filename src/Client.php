@@ -14,11 +14,11 @@ class Client
         $this->connector = new RestConnector($accessToken, $url);
     }
 
-    public function ping(): \stdClass
+    public function ping(): array
     {
         $response = $this->connector->send(new Requests\PingRequest());
 
-        return json_decode($response->json(), true, 512, JSON_THROW_ON_ERROR);
+        return json_decode($response->body(), true, 512, JSON_THROW_ON_ERROR);
     }
 
     public function createTracker(string $carrierName, string $trackingNumber): Tracker

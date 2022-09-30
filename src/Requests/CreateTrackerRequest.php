@@ -15,7 +15,7 @@ class CreateTrackerRequest extends SaloonRequest
 
     protected ?string $connector = RestConnector::class;
 
-    protected ?string $method = Saloon::POST;
+    protected ?string $method = Saloon::GET;
 
     private string $carrierName;
 

@@ -10,19 +10,21 @@ class RestConnector extends SaloonConnector
     use AcceptsJson;
 
     private string $apiBaseUrl = 'https://api.karrio.io';
+    private string $version;
 
-    public function __construct(string $token, string $url = null)
+    public function __construct(string $token, string $url = null, string $version = 'v1')
     {
         $this->withTokenAuth($token, 'Token');
 
         if (isset($url)) {
             $this->apiBaseUrl = $url;
         }
+        $this->version = $version;
     }
 
     public function defineBaseUrl(): string
     {
-        return $this->apiBaseUrl;
+        return $this->apiBaseUrl.'/'.$this->version;
     }
 
     public function defaultHeaders(): array
