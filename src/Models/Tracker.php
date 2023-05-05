@@ -34,7 +34,7 @@ class Tracker
         return Arr::get($this->data, 'carrier_id');
     }
 
-    public function getEvents(): array
+    public function getEvents(): Collection
     {
         $collection = new Collection(Event::class);
         $events = Arr::get($this->data, 'events');
@@ -42,6 +42,8 @@ class Tracker
         foreach ($events as $event) {
             $collection->add(new Event($event));
         }
+
+        return $collection;
     }
 
     public function isDelivered(): bool
